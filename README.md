@@ -21,4 +21,8 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* https://medium.com/@tpstar/password-digest-column-in-user-migration-table-871ff9120a5
+
+* https://www.railstutorial.org/book/sign_up
+
+* "/\A[\w+\-.]+@[a-z\d\-.]+\.[a-" email boy

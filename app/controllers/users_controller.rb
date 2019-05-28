@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def index
+    redirect_to :login
+  end
+
   def new
     @user = User.new
   end
@@ -7,7 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:current_user_id] = @user.id
+      session[:user] = @user.id
       flash[:notice] = "You have succesfully signed up!"
       redirect_to @user
     else
@@ -17,22 +21,22 @@ class UsersController < ApplicationController
   end
 
   def edit
-
+    @user = User.find(params[:id])
   end
 
   def update
-
+    @user = User.find(params[:id])
   end
 
   def destroy
-    # @user = User.find(params[:id])
-    # @user.destroy
-    # flash[:notice] = "Deleted your dude."
-    # redirect_to users_path
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = "Deleted your dude."
+    redirect_to users_path
   end
 
   def show
-
+    @user = User.find(params[:id])
   end
 
   private
