@@ -1,12 +1,10 @@
 class TagsController < ApplicationController
 
+  def destroy
 
-# Tag.all.map do |tag|
-#   tag.pictures.length
-# end
+  end
 
-sortedTagsByPictureCount = Tag.all.sort_by(|t| t.pictures.length)
-topThreePopularTags = sortedTagsByPictureCount[0..2]
-# or sortedTagsByPictureCount.first(3)
+  def show
 
+  end
 end

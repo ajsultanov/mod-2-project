@@ -10,6 +10,16 @@ class User < ApplicationRecord
   validates :username, presence: true
   validates :username, uniqueness: true
   # conditional on signup -- validates :password_confirmation, presence: true
-
   has_secure_password
+
+  def received_comments
+    received_comments = []
+    self.pictures.each do |p|
+      p.comments.each do |c|
+        received_comments << c
+      end
+    end
+    received_comments
+  end
+
 end

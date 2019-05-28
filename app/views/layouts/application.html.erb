@@ -10,6 +10,15 @@
   </head>
 
   <body>
+
+		<% if logged_in? %>
+		  <%= "welcome" %>
+		  <%= "sign out" %>
+		<% else %>
+		  <%= "sign up" %>
+		  <%= "sign in" %>
+		<% end %>
+
     <%= yield %>
   </body>
 </html>
