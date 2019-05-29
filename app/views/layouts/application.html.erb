@@ -13,10 +13,12 @@
 
 		<% if logged_in? %>
 		  <p><%= link_to 'Home', '/' %> /
+			<%= link_to 'My Profile', "/users/#{current_user}"%> /
 		  <%= link_to 'Log out', '/logout'%></p>
 		<% else %>
-		  <p><%= link_to 'Sign up', '/signup' %> /
-		  <%= link_to 'Log in', '/login' %></p>
+		  <p><%= link_to 'Home', '/' %> /
+		  <%= link_to 'Log in', '/login' %> /
+			<%= link_to 'Sign up', '/signup' %></p>
 		<% end %>
 
     <%= yield %>

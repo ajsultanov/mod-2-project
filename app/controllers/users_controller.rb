@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authorized?, only: [:new, :create]
 
   def index
-    redirect_to :login
+    redirect_to user_path(current_user)
   end
 
   def new
@@ -27,6 +27,12 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:notice] = "Account Information Updated!"
+      redirect_to user_path(@user)
+    else
+      render edit_user_path
+    end
   end
 
   def destroy

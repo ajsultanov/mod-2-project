@@ -3,7 +3,7 @@ class PicturesController < ApplicationController
 
 
   def index
-    
+    @pictures = Picture.all
   end
 
   def new
@@ -19,6 +19,7 @@ class PicturesController < ApplicationController
   end
 
   def show
-
+    @picture = Picture.find(params[:id])
+    @user = @picture.user
   end
 end

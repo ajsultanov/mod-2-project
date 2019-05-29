@@ -1,1 +1,9 @@
 <h1>Tags#show</h1>
+
+<h2><%= @tag.name %></h2>
+
+<% @tag.pictures.each do |p| %>
+	<ul>
+		<li><%= link_to p.title, p %></li>
+	</ul>
+<% end %>

@@ -1,14 +1,21 @@
 <h1>Users#show</h1>
 
 <% if flash[:notice] %>
-  <p class='notice'><%= flash[:notice] %></p>
+  <p class='greeting'><%= flash[:notice] %></p>
+<% end %>
+
+<h2><%= @user.username %></h2>
+
+<% @user.pictures.each do |p| %>
+	<%= link_to image_tag(p.url, size: "300x300", class: "grid"), picture_path(p) %>
 <% end %>
 
 <% if current_user == @user %>
 <!--
--see all my pictures
--create new picture (link)
+	- create new picture (link)
+	- delete picture
+	- tag picture?
 -->
 	<%= link_to 'Edit My Account', edit_user_path %>
-	<%= button_to 'Delete Account', @user, method: :delete, data: { confirm: 'For sure??' } %>
+	<%= button_to 'Delete Account', user_path, method: :delete, data: { confirm: 'For sure??' } %>
 <% end %>
