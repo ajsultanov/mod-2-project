@@ -1,18 +1,18 @@
 <h1>Log in (Sessions#new)</h1>
 
 <% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
+  <p class='notice'><%= flash[:notice] %></p>
 <% end %>
 
-<%= form_for(:session, url: login_path) do |f| %>
+<%= form_tag login_path do %>
 
-	<%= f.label :username, "Username:" %><br/>
-	<%= f.text_field :username %><br/><br/>
+	<%= label_tag :username, "Username:" %><br/>
+	<%= text_field_tag :username %><br/><br/>
 
-	<%= f.label :password, "Password:" %><br/>
-	<%= f.password_field :password %><br/><br/>
+	<%= label_tag :password, "Password:" %><br/>
+	<%= password_field_tag :password %><br/><br/>
 
-	<%= f.submit 'Log in' %>
+	<%= submit_tag 'Log in' %>
 <% end %>
 
 <p>New user? <%= link_to "Sign up!", signup_path %></p>

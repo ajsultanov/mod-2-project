@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :authorized, only: [:new, :create]
 
   def index
     redirect_to :login
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
       flash[:notice] = "You have succesfully signed up!"
       redirect_to @user
     else
-      flash[:notice] = "There was an issue. Please try again."
+      flash[:notice] = "There was an issue signing up. Please try again."
       render :new
     end
   end
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    flash[:notice] = "Deleted your dude."
+    flash[:notice] = "Deleted."
     redirect_to users_path
   end
 
