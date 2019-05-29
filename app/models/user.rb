@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :username, presence: true
   validates :username, uniqueness: true
+  # something to add:
   # conditional on signup -- validates :password_confirmation, presence: true
   has_secure_password
 

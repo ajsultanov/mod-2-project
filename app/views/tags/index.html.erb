@@ -1,7 +1,13 @@
 <h1>Tags#index</h1>
 
 <% @tags.each do |t| %>
+	<p><%= link_to t.name, tag_path(t) %></p>
+<% end %>
+
+<!--
+<% @tags.each do |t| %>
 	<% t.pictures.each do |p| %>
+		<p><%= t.name %></p>
 		<figure>
 			<%= link_to image_tag(p.url, size: "300x300", class: "grid"), picture_path(p) %>
 			<figcaption>
@@ -10,3 +16,4 @@
 		</figure>
 	<% end %>
 <% end %>
+-->

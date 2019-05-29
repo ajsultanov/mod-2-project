@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "Account Information Updated!"
-      redirect_to user_path(@user)
+      redirect_to user_path(current_user)
     else
       render edit_user_path
     end
@@ -38,12 +38,13 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    flash[:notice] = "Deleted."
+    flash[:notice] = "Your account has been DELETED."
     redirect_to users_path
   end
 
   def show
     @user = User.find(params[:id])
+    @picture = Picture.new
   end
 
   private

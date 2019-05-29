@@ -6,16 +6,39 @@
 
 <h2><%= @user.username %></h2>
 
-<% @user.pictures.each do |p| %>
-	<%= link_to image_tag(p.url, size: "300x300", class: "grid"), picture_path(p) %>
+<% if @user.pictures.length > 0 %>
+	<h3>My Pictures:</h3>
+	<% @user.pictures.each do |p| %>
+		<%= link_to image_tag(p.url, size: "300x300", class: "grid"), picture_path(p) %>
+	<% end %>
+<% else %>
+	<h3>I ain't got no pictures yet!</h3>
 <% end %>
 
+<hr/>
+
 <% if current_user == @user %>
-<!--
-	- create new picture (link)
-	- delete picture
-	- tag picture?
--->
+
+	<fieldset>
+		<legend>Upload New Picture</legend>
+		<%= form_for @picture do |f| %>
+			<%= f.label :url, "Image URL:" %><br/>
+			<%= f.text_field :url %><br/><br/>
+
+			<%= f.label :title, "Image Title:" %><br/>
+			<%= f.text_field :title %><br/><br/>
+
+			<%= fields_for :tag do |t| %>
+				<%= t.label :names, "Tags (optional):" %><br/>
+				<%= t.text_field :names %><br/><br/>
+			<% end %>
+
+			<%= f.submit 'Add Picture' %>
+		<% end %>
+	</fieldset>
+
+	<hr/>
+
 	<%= link_to 'Edit My Account', edit_user_path %>
-	<%= button_to 'Delete Account', user_path, method: :delete, data: { confirm: 'For sure??' } %>
+	<%= button_to '☠ Delete My Account ☠', user_path, method: :delete, data: { confirm: 'Really for sure??' } %>
 <% end %>

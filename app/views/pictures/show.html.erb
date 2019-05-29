@@ -4,10 +4,42 @@
 
 	<h3><%= @picture.title %></h3>
 	<figure>
-		<%= image_tag @picture.url %>
+		<%= image_tag @picture.url, class: "show" %>
 		<figcaption>
 			<%= link_to ("@" + @user.username), user_path(@user) %>
 		</figcaption>
 	</figure>
+
+	<% if @comments.length > 0 %>
+		<ol>
+			<h4>Comments:</h4>
+			<% @comments.each do |c| %>
+				<li>
+					<%= "#{c.content}" %>
+					&nbsp;&nbsp;&nbsp;-
+					<%= link_to c.user.username, user_path(c.user) %>
+				</li>
+			<% end %>
+		</ol>
+	<% end %>
+
+	<%= form_for @comment do |f| %>
+		<%= f.label :content, 'Add Comment: ' %>
+		<%= f.text_field :content %>
+		<%= f.hidden_field :picture_id %>
+		<%= f.hidden_field :user_id %>
+		<%= f.submit 'Create' %>
+	<% end %>
+
+	<p>Tags:
+		<% @tags.each do |t| %>
+			<%= link_to t.name, t %>
+		<% end %>
+	</p>
+
+	<% if current_user == @user %>
+			<!-- form_for? tags -->
+		<%= button_to 'Delete Picture', @picture, method: :delete, data: { confirm: 'U sure?' } %>
+	<% end %>
 
 </div>

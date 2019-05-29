@@ -4,4 +4,7 @@ class Picture < ApplicationRecord
   has_many :tags, through: :picture_tags
   has_many :comments
   has_many :users, through: :comments
+
+  validates :url, presence: true
+  validates :title, presence: true
 end
