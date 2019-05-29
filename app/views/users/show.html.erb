@@ -4,6 +4,11 @@
   <p class='notice'><%= flash[:notice] %></p>
 <% end %>
 
-<p>all my pictures</p><br/><br/>
-
-<p>create a new picture</p>
+<% if current_user == @user %>
+<!--
+-see all my pictures
+-create new picture (link)
+-->
+	<%= link_to 'Edit My Account', edit_user_path %>
+	<%= button_to 'Delete Account', @user, method: :delete, data: { confirm: 'For sure??' } %>
+<% end %>
