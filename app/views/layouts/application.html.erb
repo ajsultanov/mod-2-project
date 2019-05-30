@@ -5,22 +5,29 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+		<!--<link rel="icon" type="image/png" href="/app/assets/images/fav.png">-->
   </head>
 
   <body>
 
+
 		<% if logged_in? %>
-		  <p><%= link_to 'Home', '/' %> /
+		  <p class="menu">
+			<a href='/'><%= image_tag 'cam.png', class: 'logo' %>&nbsp; Home</a> /
 			<%= link_to 'My Profile', "/users/#{current_user}"%> /
 		  <%= link_to 'Log out', '/logout'%></p>
 		<% else %>
-		  <p><%= link_to 'Home', '/' %> /
+		  <p class="menu"><%= link_to 'Home', '/' %> /
 		  <%= link_to 'Log in', '/login' %> /
 			<%= link_to 'Sign up', '/signup' %></p>
 		<% end %>
 
+		<hr/>
+
     <%= yield %>
+
+		<h5>&copy; 2019 grim satan</h5>
   </body>
 </html>

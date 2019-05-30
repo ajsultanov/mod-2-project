@@ -1,4 +1,4 @@
-<h1>Pictures#show</h1>
+<h1>[Pictures - Show Page]</h1>
 
 <div class="">
 
@@ -39,6 +39,7 @@
 
 	<% if current_user == @user %>
 			<!-- form_for? tags -->
+		<hr/>
 		<%= button_to 'Delete Picture', @picture, method: :delete, data: { confirm: 'U sure?' } %>
 	<% end %>
 

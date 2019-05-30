@@ -1,10 +1,10 @@
-<h1>Pictures#index</h1>
+<h1>[Pictures - Index]</h1>
 
-<p>Most Popular Tags:
+<h3>Most Popular Tags:
 	<% @pop_tags.each do |t| %>
 		<%= link_to t.name, t %>
 	<% end %>
- /// Trending Tag: <%= link_to @trend_tag.name, @trend_tag %></p>
+ /// Trending Tag: <%= link_to @trend_tag.name, @trend_tag %></h3>
 
 <% @pictures.each do |p| %>
 	<%= link_to image_tag(p.url, size: "300x300", class: "grid"), picture_path(p) %>

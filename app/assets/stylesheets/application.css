@@ -16,14 +16,42 @@
 
  body {
    font-family: American Typewriter, monospace;
+   background-color: #056;
+   color: #FCC;
+ }
+
+ a {
+   color: #E64;
+ }
+
+ hr{
+   border-color: #046;
+ }
+
+ .menu {
+   display: inline;
+ }
+
+ .menu a {
+   text-decoration: none;
+ }
+
+ .logo {
+   height: 16px;
+   width: 320px;
  }
 
  .notice {
-   color: red;
+   color: #F38;
+   border: 2px dotted;
+   border-radius: 6px;
+   border-color: #A48;
+   padding: 6px;
  }
 
  .greeting {
-   color: green;
+   color: #4F2;
+   border-color: #2A2;
  }
 
  .show {
