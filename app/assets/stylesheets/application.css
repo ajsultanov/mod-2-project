@@ -40,6 +40,10 @@
    text-decoration: none;
  }
 
+ a.edit_tags {
+   color: #FA6;
+ }
+
  .logo {
    height: 16px;
    width: 320px;

@@ -36,15 +36,15 @@ class PicturesController < ApplicationController
   end
 
   def update
-    byebug
     @picture = Picture.find(params[:id])
 
+    @picture.tags.clear
     names = params[:picture][:tag][:names].split(' ')
     names.each do |c|
       @picture.tags << Tag.find_or_create_by(name: c.capitalize)
     end
 
-    if @picture.update
+    if @picture.update(picture_params)
       redirect_to @picture
     else
       render edit_picture_path(@picture)

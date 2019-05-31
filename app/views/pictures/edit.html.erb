@@ -9,7 +9,7 @@
 </figure>
 
 <%= form_for @picture do |f| %>
-	<%= f.fields_for @tags do |t| %>
+	<%= f.fields_for :tag do |t| %>
 		<%= t.label :names, 'Tags:' %><br/>
 		<%= t.text_area :names, value: @picture.show_tags %>
 	<% end %><br/>
