@@ -1,4 +1,4 @@
-<h1>[Users - Show Page]</h1>
+<h1>Profile <span class="route">[Users - Show Page]</span></h1>
 
 <% if flash[:notice] %>
   <h3 class='notice greeting'><%= flash[:notice] %></h3>
@@ -39,9 +39,9 @@
 
 	<hr/>
 
-	<%= link_to 'Edit My Account', edit_user_path %>
+	<%= link_to 'Edit My Account', edit_user_path %><br/>
 	<%= button_to '☠ Delete My Account ☠', user_path,
-			method: :delete, 
+			method: :delete,
 			data: { confirm: 'Really for sure??' },
 			class:"delete_button" %>
 <% end %>

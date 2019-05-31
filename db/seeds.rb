@@ -7,16 +7,17 @@
 end
 User.create(username:"adam", email: "adam@a.com", password:"123")
 
-%w(Nature NYC Art Humor Space Travel Fun Sports Food Science).each do |tag_name|
+%w(Nature NYC Art Humor Space Travel Fun Sports Food Science Cats).each do |tag_name|
   Tag.create(name: tag_name)
 end
-# 1.Nature 2.NYC 3.Art 4.Humor 5.Space 6.Travel 7.Fun 8.Sports 9.Food 10.Science
+# 1.Nature 2.NYC 3.Art 4.Humor 5.Space 6.Travel 7.Fun 8.Sports 9.Food 10.Science 11.Cats
 
 urls = ["blep",
         "http://www.defenders.org/sites/default/files/styles/large/public/dolphin-kristian-sekulic-isp.jpg",
         "https://i.imgur.com/q992dgi.jpg", #2 planes
         "https://i.imgur.com/l04EhtU.jpg", #3 sunset
-        "https://i.imgur.com/I7FpK0o.jpg", #4 pb cup
+        "https://i.imgur.com/zLQUfWb.jpg", #cat mess
+        #"https://i.imgur.com/I7FpK0o.jpg", #4 pb cup
         "https://i.imgur.com/oIJsmOX.jpg", #5 dog
         "https://i.imgur.com/0Eocd7X.jpg", #6 slj
         "https://i.imgur.com/qjPV0WH.jpg", #7 ironlung
@@ -39,11 +40,12 @@ PictureTag.create(picture_id: 3, tag_id: 1)
 PictureTag.create(picture_id: 3, tag_id: 6)
 Comment.create(picture_id: 2, content: "I am amazed", user_id: 2)
 
-Picture.create(url: urls[4], title: "Delicious food", user_id: 4)
+Picture.create(url: urls[4], title: "Bad Kitty", user_id: 4)
 PictureTag.create(picture_id: 4, tag_id: 3)
 PictureTag.create(picture_id: 4, tag_id: 4)
 PictureTag.create(picture_id: 4, tag_id: 7)
 PictureTag.create(picture_id: 4, tag_id: 9)
+PictureTag.create(picture_id: 4, tag_id: 11)
 
 Picture.create(url: urls[5], title: "My dog at the beach", user_id: 5)
 PictureTag.create(picture_id: 5, tag_id: 1)
@@ -71,6 +73,7 @@ Picture.create(url: urls[10], title: "Kitty", user_id: 6)
 PictureTag.create(picture_id: 10, tag_id: 2)
 PictureTag.create(picture_id: 10, tag_id: 4)
 PictureTag.create(picture_id: 10, tag_id: 7)
+PictureTag.create(picture_id: 10, tag_id: 11)
 
 # More pictures to create
 # https://i.imgur.com/KJG3RmV.jpg				dog
