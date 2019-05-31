@@ -2,7 +2,7 @@
 
 <h2><%= @tag.name %></h2>
 
-<% @tag.pictures.each do |p| %>
+<% @tag.pictures.uniq.each do |p| %>
 	<%= link_to image_tag(p.url, size: "300x300", class: "grid"), p %>
 <% end %>
 
