@@ -21,11 +21,33 @@ class PicturesController < ApplicationController
       @picture.tags << Tag.find_or_create_by(name: c.capitalize)
     end
 
-
     if @picture.save
       redirect_to @picture
     else
       redirect_to user_path(current_user)
+    end
+  end
+
+  def edit
+    @picture = Picture.find(params[:id])
+    @user = @picture.user
+    @tags = @picture.tags
+    @comments = @picture.comments
+  end
+
+  def update
+    byebug
+    @picture = Picture.find(params[:id])
+
+    names = params[:picture][:tag][:names].split(' ')
+    names.each do |c|
+      @picture.tags << Tag.find_or_create_by(name: c.capitalize)
+    end
+
+    if @picture.update
+      redirect_to @picture
+    else
+      render edit_picture_path(@picture)
     end
   end
 

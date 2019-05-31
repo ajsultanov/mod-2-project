@@ -1,1 +1,17 @@
-<h1>[Pictures - Edit]</h1>
+<h1>Add Tags [Pictures - Edit]</h1>
+
+<h3><%= @picture.title %></h3>
+<figure>
+	<%= image_tag @picture.url, class: "grid" %>
+	<figcaption>
+		<%= link_to ("@" + @user.username), user_path(@user) %>
+	</figcaption>
+</figure>
+
+<%= form_for @picture do |f| %>
+	<%= f.fields_for @tags do |t| %>
+		<%= t.label :names, 'Tags:' %><br/>
+		<%= t.text_area :names, value: @picture.show_tags %>
+	<% end %><br/>
+	<%= f.submit 'Add/Edit Tags'%>
+<% end %>

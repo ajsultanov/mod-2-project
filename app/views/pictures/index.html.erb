@@ -7,5 +7,5 @@
  /// Trending Tag: <%= link_to @trend_tag.name, @trend_tag %></h3>
 
 <% @pictures.each do |p| %>
-	<%= link_to image_tag(p.url, size: "300x300", class: "grid"), picture_path(p) %>
+	<%= link_to image_tag(p.url, class: "grid"), picture_path(p) %>
 <% end %>

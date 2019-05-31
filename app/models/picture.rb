@@ -7,4 +7,12 @@ class Picture < ApplicationRecord
 
   validates :url, :title, presence: true
   #validates :title, presence: true
+
+  def show_tags
+    tag_list = ""
+    self.tags.each do |t|
+      tag_list << "#{t.name} "
+    end
+    tag_list
+  end
 end

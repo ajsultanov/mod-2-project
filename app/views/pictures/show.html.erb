@@ -35,6 +35,10 @@
 		<% @tags.each do |t| %>
 			<%= link_to t.name, t %>
 		<% end %>
+
+		<% if current_user == @user %>
+			<%= link_to 'Add tags...', edit_picture_path(@picture) %>
+		<% end %>
 	</p>
 
 	<% if current_user == @user %>

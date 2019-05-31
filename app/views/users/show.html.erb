@@ -30,7 +30,7 @@
 
 			<%= fields_for :tag do |t| %>
 				<%= t.label :names, "Tags (optional):" %><br/>
-				<%= t.text_field :names %><br/><br/>
+				<%= t.text_area :names %><br/><br/>
 			<% end %>
 
 			<%= f.submit 'Add Picture' %>
