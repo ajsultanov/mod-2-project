@@ -14,60 +14,69 @@
  *= require_self
  */
 
- body {
-   font-family: American Typewriter, monospace;
-   background-color: #056;
-   color: #FCC;
- }
+body {
+  font-family: American Typewriter, monospace;
+  background-color: #056;
+  color: #FCC;
+}
 
- a {
-   color: #E64;
- }
+a {
+  color: #E64;
+}
 
- hr{
-   border-color: #046;
- }
+hr{
+  border-color: #046;
+}
 
- textarea {
-   width: 300px;
- }
+textarea {
+  width: 300px;
+}
 
- .menu {
-   display: inline;
- }
+input[type="submit"] {
+  border-radius: 6px;
+}
 
- .menu a {
-   text-decoration: none;
- }
+.menu {
+  display: inline;
+}
 
- a.edit_tags {
-   color: #FA6;
- }
+.menu a {
+  text-decoration: none;
+}
 
- .logo {
-   height: 16px;
-   width: 320px;
- }
+a.edit_tags {
+  color: #FA6;
+}
 
- .notice {
-   color: #F38;
-   border: 2px dotted;
-   border-radius: 6px;
-   border-color: #A48;
-   padding: 6px;
- }
+.logo {
+  height: 16px;
+  width: 320px;
+}
 
- .greeting {
-   color: #4F2;
-   border-color: #2A2;
- }
+.notice {
+  color: #F38;
+  border: 2px dotted;
+  border-radius: 6px;
+  border-color: #A48;
+  padding: 6px;
+}
 
- .show {
-   max-width: 100%;
-   max-height: 600px;
- }
+.greeting {
+  color: #4F2;
+  border-color: #2A2;
+}
 
- .grid {
-   width: 300px;
-   height: 300px;
- }
+.show {
+  max-width: 100%;
+  max-height: 600px;
+}
+
+.grid {
+  width: 300px;
+  height: 300px;
+}
+
+.delete_button {
+  background-color: #B46;
+  color: #EEE;
+}

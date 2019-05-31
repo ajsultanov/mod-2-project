@@ -16,8 +16,12 @@
 			<% @comments.each do |c| %>
 				<li>
 					<%= "#{c.content}" %>
-					&nbsp;&nbsp;&nbsp;-
-					<%= link_to c.user.username, user_path(c.user) %>
+					&nbsp;&nbsp;
+					<% if current_user == c.user %>
+						<%= button_to 'Delete Comment', "/comments/#{c.id}/delete", class:"delete_button" %>
+					<% else %>
+						- <%= link_to c.user.username, user_path(c.user) %>
+					<% end %>
 				</li>
 			<% end %>
 		</ol>
@@ -42,7 +46,6 @@
 	</p>
 
 	<% if current_user == @user %>
-			<!-- form_for? tags -->
 		<hr/>
 		<%= button_to 'Delete Picture', @picture, method: :delete, data: { confirm: 'U sure?' } %>
 	<% end %>

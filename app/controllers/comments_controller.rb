@@ -8,6 +8,11 @@ class CommentsController < ApplicationController
     redirect_to picture_path(@picture)
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+  end
+
   private
 
   def comment_params
