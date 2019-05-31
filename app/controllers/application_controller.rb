@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authorized?
+  before_action :authorized?, :users
   helper_method :current_user, :logged_in?
 
   def current_user
@@ -12,5 +12,11 @@ class ApplicationController < ActionController::Base
 
   def authorized?
     redirect_to :login unless logged_in?
+  end
+
+  private
+
+  def users
+    @users = User.all
   end
 end

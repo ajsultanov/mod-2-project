@@ -18,7 +18,7 @@
 					<%= "#{c.content}" %>
 					&nbsp;&nbsp;
 					<% if current_user == c.user %>
-						<%= button_to 'Delete Comment', "/comments/#{c.id}/delete", class:"delete_button" %>
+						<%= button_to 'Delete Comment', "/comments/#{c.id}", method: :delete, class:"delete_button" %>
 					<% else %>
 						- <%= link_to c.user.username, user_path(c.user) %>
 					<% end %>
@@ -36,7 +36,7 @@
 	<% end %>
 
 	<p>Tags:
-		<% @tags.each do |t| %>
+		<% @tags.uniq.each do |t| %>
 			<%= link_to t.name, t %>
 		<% end %>
 

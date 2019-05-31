@@ -12,7 +12,6 @@
 
   <body>
 
-
 		<% if logged_in? %>
 		  <p class="menu">
 			<a href='/'><%= image_tag 'cam.png', class: 'logo' %>&nbsp; Home</a> /
@@ -28,6 +27,12 @@
 
     <%= yield %>
 
+		<hr/>
+
 		<h5>&copy; 2019 grim satan</h5>
+
+		<% @users.each do |u| %>
+			<%= link_to image_tag('cam.png'), user_path(u)%></a>
+		<% end %>
   </body>
 </html>
