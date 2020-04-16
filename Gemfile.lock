@@ -121,7 +121,7 @@ GEM
     nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
     public_suffix (3.1.1)
-    puma (3.12.2)
+    puma (3.12.4)
     rack (2.0.8)
 >>>>>>> ab45e4b5b66a087bcad707511dc9b52df4ab652a
     rack-test (1.1.0)
